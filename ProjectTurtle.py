@@ -44,6 +44,21 @@ def turtle_racers(no):
         racers.pendown()
         turtle_no.append(racers)
 
+    return turtle_no
+
+
+def Race(colors):
+
+    turtleobj = turtle_racers(colors)
+
+    while True:
+        for racers in turtleobj:
+            dis = r.randrange(1,15)
+            racers.forward(dis)
+
+            x , y = racers.pos()
+            if y >= 240:
+                return colors[turtleobj.index(racers)]
 
 
 
@@ -52,4 +67,6 @@ racers = get_number_of_racers()
 
 r.shuffle(COLOR)
 colors = COLOR[:racers]
-turtle_racers(colors)
+
+winner = Race(colors)
+print("The winner of the race is color: " + winner.upper())
